@@ -21,7 +21,7 @@ const Shop = observer(() => {
             .then(res => {
                 device.setBrands(res)
             })
-        fetchDevices(null, null, 1, 5)
+        fetchDevices(null, null, device.page, 4)
             .then(res => {
                 device.setDevices(res.rows)
                 device.setTotalCount(res.count)
@@ -40,10 +40,10 @@ const Shop = observer(() => {
     return (
         <Container>
             <Row>
-                <Col md={3}>
+                <Col md={2}>
                     <TypeBar/>
                 </Col>
-                <Col md={9}>
+                <Col md={10}>
                     <BrandBar/>
                     <DeviceList/>
                     <Pages/>

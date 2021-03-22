@@ -63,3 +63,20 @@ export const fetchOneDevice = async (id) => {
     return data
 }
 
+// export const createBasketDevice = async (id) => {
+//     const {data} = await
+//     $host.post('api/basket_device', {id})
+//         .then((res) => {
+//             showNotification("Успешно добавлено", 'success')
+//             return {res}
+//         })
+//         .catch(() => {
+//             showNotification("Произошла ошибка", 'danger')
+//         })
+//     return data
+// }
+
+// export const fetchBasketDevices = async () => {
+//     const {data} = await $host.get('api/basket')
+//     return data
+// }

@@ -6,15 +6,16 @@ import DeviceItem from './DeviceItem'
 
 const DeviceList = observer(() => {
     const {device} = useContext(Context)
-    return (
-        <Row className="mt-5">
-            {device.devices.map(device => {
-                return (
-                    <DeviceItem key={device.id} device={device}/>
-                )
-            })}
-        </Row>
-    )
+
+        return (
+            <Row className="mt-5">
+                {device.devices.map(device => {
+                    return (
+                        <DeviceItem key={device.id} deviceItem={device}/>
+                    )
+                })}
+            </Row>
+        )
 })
 
 export default DeviceList

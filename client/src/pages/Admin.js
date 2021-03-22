@@ -18,7 +18,7 @@ const Admin = observer(() => {
                  history.push(SHOP_ROUTE)
               }
           })
-  }, [])
+   }, [])
 
    const [typeVisible, setTypeVisible] = useState(false)
    const [brandVisible, setBrandVisible] = useState(false)
@@ -26,6 +26,7 @@ const Admin = observer(() => {
 
     return (
         <Container className="d-flex flex-column">
+             <h2 className="mt-4 text-center">Административная панель</h2>
              <Button 
                 className="mt-4 p-3"
                 onClick={() => setTypeVisible(true)}

@@ -2,12 +2,12 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Container, Row, Image, Col, Card, Button } from 'react-bootstrap'
 import bigstar from '../assets/bigstar.png'
 import {useParams} from 'react-router-dom'
-import {fetchDevices, fetchOneDevice } from '../http/deviceAPI'
+import { fetchOneDevice} from '../http/deviceAPI'
 import { observer } from 'mobx-react-lite'
 import {Context} from '../index'
+import showNotification from '../components/Notification'
 
 const DeviceShop = observer(() => {
-    
     const {device} = useContext(Context)
 
     const [deviceInfo, setDeviceInfo] = useState({info:[]})
@@ -21,18 +21,8 @@ const DeviceShop = observer(() => {
     }, [])
 
     const onAdd = (basketId) => {
-        fetchDevices()
-            .then(res => {
-                for (let obj of res.rows) {
-                    for(let [key, value] of Object.entries(obj)){
-                        if(value === basketId){
-                            const data = []
-                            data.push(obj)
-                            device.setBasketDevices(data)
-                        } 
-                    }
-                }
-            })
+        device.setBasketDevices(basketId)
+        showNotification('Добавлено в корзину', 'success')
     }
     
     return (
@@ -61,7 +51,7 @@ const DeviceShop = observer(() => {
                         >
                         <h3>От: {deviceInfo.price} сомов</h3>
                         <Button 
-                            variant={'outline-dark'}
+                            variant={'outline-success'}
                             onClick={() => onAdd(deviceInfo.id)}>
                             Add to Basket
                             </Button>

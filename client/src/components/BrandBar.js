@@ -10,8 +10,8 @@ const BrandBar = observer(() => {
             {device.brands.map(brand => {
                 return(
                     <Card
-                        style={{width: '6rem'}}
-                        className="ml-2"
+                        style={{width: '8rem', height: '2rem', border: '2px solid blue'}}
+                        className="ml-2 text-center"
                         key={brand.id}
                         onClick={() => device.setSelectedBrand(brand)}
                         border={brand.id === device.selectedBrand.id? 'danger': 'light'}

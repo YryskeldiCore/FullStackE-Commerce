@@ -26,7 +26,23 @@ const App = observer(() => {
     }, [])
 
     if(loading) {
-        return <Spinner animation={"grow"}/>
+        return (
+            <div style={{
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
+                    height: '100vh', 
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(0,0,0,.3)'}}>
+                <Spinner 
+                animation="border" 
+                variant="primary" />
+            </div>
+        )
     }
 
     return (
