@@ -11,6 +11,7 @@ const TypeBar = observer(() => {
             {device.types.map(type => {
                 return(
                     <ListGroup.Item 
+                        className="typebar-hover"
                         style={{cursor: 'pointer'}}
                         active={type.id === device.selectedType.id}
                         onClick={() => device.setSelectedType(type)}

@@ -12,6 +12,7 @@ export default class DeviceStore {
         this._totalCount = 0
         this._limit = 4
         this._sum = 0
+        this._count = 0
         makeAutoObservable(this)
     }
 
@@ -32,7 +33,6 @@ export default class DeviceStore {
             ]
             this._sum = this._sum + itemInStore.price
         }
-
         //Товара не было в корзине
 
         const item = this._devices.find(device => device.id === basketId)
@@ -41,6 +41,9 @@ export default class DeviceStore {
             ...item,
             quantity: 1
         }
+
+        this._count = this.count + newItem.quantity
+
 
         if(this._basketDevices.find(item => item.id === basketId)){ 
             this._basketDevices = [...this._basketDevices]
@@ -53,7 +56,10 @@ export default class DeviceStore {
     removeBasketDevices(id){
         const idx = this._basketDevices.findIndex(item => item.id === id)
         const price = this._basketDevices[idx]['price'] * this._basketDevices[idx]['quantity']
+        const quantity = this._basketDevices[idx]['quantity']
+        console.log(quantity)
         this._basketDevices = [...this._basketDevices.slice(0, idx), ...this._basketDevices.slice(idx + 1)]
+        this._count = this.count - quantity
         this._sum = this._sum - price
     }
 
@@ -125,5 +131,9 @@ export default class DeviceStore {
 
     get sum(){
         return this._sum
+    }
+
+    get count(){
+        return this._count
     }
 }

@@ -11,7 +11,7 @@ const BrandBar = observer(() => {
                 return(
                     <Card
                         style={{width: '8rem', height: '2rem', border: '2px solid blue'}}
-                        className="ml-2 text-center"
+                        className="ml-2 text-center brandbar-hover"
                         key={brand.id}
                         onClick={() => device.setSelectedBrand(brand)}
                         border={brand.id === device.selectedBrand.id? 'danger': 'light'}

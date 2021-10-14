@@ -11,7 +11,9 @@ const DeviceList = observer(() => {
             <Row className="mt-5">
                 {device.devices.map(device => {
                     return (
-                        <DeviceItem key={device.id} deviceItem={device}/>
+                        <DeviceItem 
+                            key={device.id} 
+                            deviceItem={device}/>
                     )
                 })}
             </Row>
